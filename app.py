@@ -37,10 +37,10 @@ def page1():
       # Redirect to dashboard if logged in
     return render_template('page1.html')
 @app.route('/page')
-def page():
+def index():
     #if current_user.is_authenticated:
         #return redirect(url_for('p'))  # Redirect to dashboard if logged in
-    return render_template('page.html')
+    return render_template('index.html')
 #app.config['SECRET_KEY'] = 'smriti'
 login_manager = LoginManager(app)
 
