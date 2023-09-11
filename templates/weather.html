@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB; /* Sky Blue background */
+        }
+        h1 {
+            text-align: center;
+            color: #fff; /* White text color */
+        }
+        form {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 300px;
+            background-color: #fff; /* White form background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333; /* Dark Gray text color */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light Gray border */
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50; /* Green button color */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker Green on hover */
+        }
+        h2 {
+            text-align: center;
+            color: #333; /* Dark Gray text color */
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            color: #333; /* Dark Gray text color */
+        }
+        .cloud-icon {
+            display: block;
+            text-align: center;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather</h1>
+
+    <form method="POST" action="/weather">
+        <label for="city_name">Enter City Name:</label>
+        <input type="text" id="city_name" name="city_name" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <!-- Display Weather Data -->
+    {% if temperature and weather_description %}
+    <h2>Weather in {{ city }}</h2>
+    <p>Temperature: {{ temperature_fahrenheit }}°C</p>
+
+    <p>Weather Description: {{ weather_description }}</p>
+    <span class="cloud-icon">&#9729;</span> <!-- Cloud icon -->
+    {% endif %}
+</body>
+</html>
